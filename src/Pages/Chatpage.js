@@ -10,8 +10,9 @@ const Chatpage = () => {
   const { user } = ChatState();
 
   return (
-    <div style={{ width: "100%" }}>
-      {user && <SideDrawer />}
+   <div style={{ width: "100%" }}>
+      {/* {user && <SideDrawer />} */}
+      <SideDrawer />
       <Box
         d="flex"
         justifyContent="space-between"
@@ -20,10 +21,14 @@ const Chatpage = () => {
         p="10px"
         style={{ display: "flex" }}
       >
-        {user && <MyChats fetchAgain={fetchAgain} />}
-        {user && (
+        {/* {user && <MyChats fetchAgain={fetchAgain} />} */}
+
+        <MyChats fetchAgain={fetchAgain} />
+
+        {/* {user && (
           <Chatbox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
-        )}
+        )} */}
+        <Chatbox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
       </Box>
     </div>
   );
