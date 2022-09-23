@@ -9,6 +9,8 @@ import GroupChatModal from "./miscellaneous/GroupChatModal";
 import { Button } from "@chakra-ui/react";
 import { ChatState } from "../Context/ChatProvider";
 
+
+
 const MyChats = ({ fetchAgain }) => {
   const [loggedUser, setLoggedUser] = useState();
 
@@ -44,6 +46,18 @@ const MyChats = ({ fetchAgain }) => {
     fetchChats();
     // eslint-disable-next-line
   }, [fetchAgain]);
+  
+  
+   const reload = function(){
+    if(!window.location.hash){
+      window.location = window.location + '#loaded';
+      console.log("reloaded");
+      window.location.reload();
+    }
+  }
+
+
+  reload();
 
   return (
     <Box
