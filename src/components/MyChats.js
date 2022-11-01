@@ -12,6 +12,18 @@ import { ChatState } from "../Context/ChatProvider";
 
 
 const MyChats = ({ fetchAgain }) => {
+  
+    const reload = function(){
+    if(!window.location.hash){
+      window.location = window.location + '#loaded';
+      console.log("reloaded");
+      window.location.reload();
+    }
+  }
+
+
+  reload();
+  
   const [loggedUser, setLoggedUser] = useState();
 
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
@@ -46,18 +58,6 @@ const MyChats = ({ fetchAgain }) => {
     fetchChats();
     // eslint-disable-next-line
   }, [fetchAgain]);
-  
-  
-   const reload = function(){
-    if(!window.location.hash){
-      window.location = window.location + '#loaded';
-      console.log("reloaded");
-      window.location.reload();
-    }
-  }
-
-
-  reload();
 
   return (
     <Box
