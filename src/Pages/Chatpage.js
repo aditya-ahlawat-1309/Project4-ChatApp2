@@ -6,6 +6,17 @@ import SideDrawer from "../components/miscellaneous/SideDrawer";
 import { ChatState } from "../Context/ChatProvider";
 
 const Chatpage = () => {
+  
+     const reload = function () {
+      if (!window.location.hash) {
+        window.location = window.location + "#loaded";
+        console.log("reloaded");
+        window.location.reload();
+      }
+    };
+
+    reload();
+  
   const [fetchAgain, setFetchAgain] = useState(false);
   const { user } = ChatState();
 
