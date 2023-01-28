@@ -113,7 +113,7 @@ const MyChats = ({ fetchAgain }) => {
               <Box
                 onClick={() => setSelectedChat(chat)}
                 cursor="pointer"
-                bg={selectedChat === chat ? "#FFFC00" : "#E0237B"}
+                bg={selectedChat === chat ? "#128c7e" : "#7d488c"}
                 color={selectedChat === chat ? "black" : "white"}
                 px={3}
                 py={2}
