@@ -32,13 +32,16 @@ const Chatpage = () => {
         p="10px"
         style={{ display: "flex" }}
       >
+        
+         {user && (
+          <Chatbox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+        )}
+        
         {user && <MyChats fetchAgain={fetchAgain} />}
 
         {/* <MyChats fetchAgain={fetchAgain} /> */}
 
-        {user && (
-          <Chatbox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
-        )}
+       
         {/* <Chatbox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} /> */}
       </Box>
     </div>
