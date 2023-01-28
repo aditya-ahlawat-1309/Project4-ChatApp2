@@ -173,6 +173,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             justifyContent={{ base: "space-between" }}
             alignItems="center"
             style={{ display: "flex" }}
+            
           >
             <IconButton
               d={{ base: "flex", md: "none" }}
@@ -215,6 +216,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                  backgroundImage:
                 "url(" + "https://images.pexels.com/photos/6491643/pexels-photo-6491643.jpeg?cs=srgb&dl=pexels-hani-hakkam-6491643.jpg&fm=jpg" + ")",
             }}
+            className="my-chats-stack"
           >
             {loading ? (
               <Spinner
