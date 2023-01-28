@@ -102,7 +102,7 @@ const MyChats = ({ fetchAgain }) => {
         w="100%"
         h="100%"
         borderRadius="lg"
-//         overflowY="hidden"
+        overflowY="scroll"
         style={{ dipslay: "flex" }}
       >
         {chats ? (
