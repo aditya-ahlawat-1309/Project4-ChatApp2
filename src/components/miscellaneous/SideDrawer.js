@@ -146,7 +146,7 @@ function SideDrawer() {
             </Text>
           </Button>
         </Tooltip>
-        <Text fontSize="2xl" fontFamily="Work sans">
+        <Text fontSize="2xl" fontFamily="Work sans" className="display-small-screen">
           AD Chat App
         </Text>
         <div>
