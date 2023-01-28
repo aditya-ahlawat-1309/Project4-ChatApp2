@@ -175,12 +175,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             style={{ display: "flex" }}
             
           >
-            <IconButton
-              d={{ base: "flex", md: "none" }}
-              icon={<ArrowBackIcon />}
-              onClick={() => setSelectedChat("")}
-              style={{ display: "flex" }}
-            />
+//             <IconButton
+//               d={{ base: "flex", md: "none" }}
+//               icon={<ArrowBackIcon />}
+//               onClick={() => setSelectedChat("")}
+//               style={{ display: "flex" }}
+//             />
             {messages &&
               (!selectedChat.isGroupChat ? (
                 <>
