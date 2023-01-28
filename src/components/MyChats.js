@@ -9,21 +9,18 @@ import GroupChatModal from "./miscellaneous/GroupChatModal";
 import { Button } from "@chakra-ui/react";
 import { ChatState } from "../Context/ChatProvider";
 
-
-
 const MyChats = ({ fetchAgain }) => {
-  
-    const reload = function(){
-    if(!window.location.hash){
-      window.location = window.location + '#loaded';
-      console.log("reloaded");
-      window.location.reload();
-    }
-  }
 
+    const reload = function () {
+      if (!window.location.hash) {
+        window.location = window.location + "#loaded";
+        console.log("reloaded");
+        window.location.reload();
+      }
+    };
 
-  reload();
-  
+    reload();
+
   const [loggedUser, setLoggedUser] = useState();
 
   const { selectedChat, setSelectedChat, user, chats, setChats } = ChatState();
@@ -39,7 +36,10 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("https://lazy-pear-sea-lion-tam.cyclic.app/api/chat", config);
+      const { data } = await axios.get(
+        "https://lazy-pear-sea-lion-tam.cyclic.app/api/chat",
+        config
+      );
       setChats(data);
     } catch (error) {
       toast({
@@ -58,6 +58,7 @@ const MyChats = ({ fetchAgain }) => {
     fetchChats();
     // eslint-disable-next-line
   }, [fetchAgain]);
+
 
   return (
     <Box
@@ -104,6 +105,7 @@ const MyChats = ({ fetchAgain }) => {
         borderRadius="lg"
         overflowY="scroll"
         style={{ dipslay: "flex" }}
+        className="my-chats-stack"
       >
         {chats ? (
           <Stack overflowY="scroll">
@@ -117,6 +119,7 @@ const MyChats = ({ fetchAgain }) => {
                 py={2}
                 borderRadius="lg"
                 key={chat._id}
+              
               >
                 <Text>
                   {!chat.isGroupChat
