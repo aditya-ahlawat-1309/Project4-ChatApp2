@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useState} from "react";
 import { Box } from "@chakra-ui/layout";
 import {
   Tab,
@@ -7,7 +7,6 @@ import {
   TabPanels,
   Tabs,
 } from "@chakra-ui/react";
-import { useState } from "react";
 import Chatbox from "../components/Chatbox";
 import MyChats from "../components/MyChats";
 import SideDrawer from "../components/miscellaneous/SideDrawer";
@@ -26,7 +25,16 @@ const Chatpage = () => {
 
   const [fetchAgain, setFetchAgain] = useState(false);
   const { user } = ChatState();
-  console.log(window.innerWidth)
+
+   const [tabIndex, setTabIndex] = useState(0);
+
+   const handleSliderChange = (event) => {
+     setTabIndex(1);
+   };
+
+   const handleTabsChange = (index) => {
+     setTabIndex(index);
+   };
 //   useEffect(() => {
 // window.location.reload();
 
@@ -81,13 +89,19 @@ const Chatpage = () => {
             className="display-screen"
           >
             {" "}
-            <Tabs isFitted variant="soft-rounded" colorScheme="green">
+            <Tabs
+              isFitted
+              variant="soft-rounded"
+              colorScheme="green"
+              index={tabIndex}
+              onChange={handleTabsChange}
+            >
               <TabList mb="1em">
                 <Tab>My Chats</Tab>
                 <Tab>Chat Page</Tab>
               </TabList>
               <TabPanels>
-                <TabPanel>
+                <TabPanel onClick={handleSliderChange}>
                   {user && <MyChats fetchAgain={fetchAgain} />}
                 </TabPanel>
                 <TabPanel>
