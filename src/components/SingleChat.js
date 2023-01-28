@@ -207,7 +207,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             w="100%"
             h="90%"
             borderRadius="lg"
-            overflowY="hidden"
+            overflowY="scroll"
             style={{
               display: "flex",
               backgroundSize: "cover",
@@ -249,7 +249,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 <></>
               )}
               <Input
-                variant="filled"
+//                 variant="filled"
                 bg="#fff"
                 placeholder="Enter a message.."
                 value={newMessage}
