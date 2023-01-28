@@ -30,7 +30,7 @@ const Chatpage = () => {
         w="100%"
         h="91.5vh"
         p="10px"
-        style={{ display: "flex" }}
+        className="display-screen"
       >
         
          {user && (
