@@ -1,13 +1,20 @@
+import {useEffect} from "react";
 import { Box } from "@chakra-ui/layout";
+import {
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import Chatbox from "../components/Chatbox";
 import MyChats from "../components/MyChats";
 import SideDrawer from "../components/miscellaneous/SideDrawer";
 import { ChatState } from "../Context/ChatProvider";
-
 const Chatpage = () => {
-  
-     const reload = function () {
+
+    const reload = function () {
       if (!window.location.hash) {
         window.location = window.location + "#loaded";
         console.log("reloaded");
@@ -16,35 +23,87 @@ const Chatpage = () => {
     };
 
     reload();
-  
+
   const [fetchAgain, setFetchAgain] = useState(false);
   const { user } = ChatState();
+  console.log(window.innerWidth)
+//   useEffect(() => {
+// window.location.reload();
 
+//   },[]);
   return (
-   <div style={{ width: "100%" }}>
+    <>
+      {/* <div style={{ width: "100%" }}>
       {user && <SideDrawer />}
-      {/* <SideDrawer /> */}
       <Box
         d="flex"
         justifyContent="space-between"
         w="100%"
         h="91.5vh"
         p="10px"
-        className="display-screen"
+       className="display-screen"
       >
-        
-         {user && (
+        {user && (
           <Chatbox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
         )}
-        
+        <br/>
         {user && <MyChats fetchAgain={fetchAgain} />}
-
-        {/* <MyChats fetchAgain={fetchAgain} /> */}
-
-       
-        {/* <Chatbox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} /> */}
       </Box>
-    </div>
+    </div> */}
+
+      {window.innerWidth > 500 ? (
+        <div style={{ width: "100%" }}>
+          {user && <SideDrawer />}
+          <Box
+            d="flex"
+            justifyContent="space-between"
+            w="100%"
+            h="91.5vh"
+            p="10px"
+            className="display-screen"
+          >
+            {user && (
+              <Chatbox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+            )}
+            <br />
+            {user && <MyChats fetchAgain={fetchAgain} />}
+          </Box>
+        </div>
+      ) : (
+        <div style={{ width: "100%" }}>
+          {user && <SideDrawer />}
+          <Box
+            d="flex"
+            justifyContent="space-between"
+            w="100%"
+            h="91.5vh"
+            p="10px"
+            className="display-screen"
+          >
+            {" "}
+            <Tabs isFitted variant="soft-rounded">
+              <TabList mb="1em">
+                <Tab>My Chats</Tab>
+                <Tab>Chat Page</Tab>
+              </TabList>
+              <TabPanels>
+                <TabPanel>
+                  {user && <MyChats fetchAgain={fetchAgain} />}
+                </TabPanel>
+                <TabPanel>
+                  {user && (
+                    <Chatbox
+                      fetchAgain={fetchAgain}
+                      setFetchAgain={setFetchAgain}
+                    />
+                  )}
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
+          </Box>
+        </div>
+      )}
+    </>
   );
 };
 
