@@ -81,7 +81,7 @@ const Chatpage = () => {
             className="display-screen"
           >
             {" "}
-            <Tabs isFitted variant="soft-rounded">
+            <Tabs isFitted variant="soft-rounded" colorScheme="green">
               <TabList mb="1em">
                 <Tab>My Chats</Tab>
                 <Tab>Chat Page</Tab>
