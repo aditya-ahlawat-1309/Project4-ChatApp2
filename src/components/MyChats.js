@@ -83,7 +83,7 @@ const MyChats = ({ fetchAgain }) => {
         alignItems="center"
         style={{ display: "flex" }}
       >
-        My Chats
+         <div className="display-small-screen">My Chats</div>
         <GroupChatModal>
           <Button
             d="flex"
