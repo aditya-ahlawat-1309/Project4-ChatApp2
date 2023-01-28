@@ -11,7 +11,7 @@ import ProfileModal from "./miscellaneous/ProfileModal";
 import ScrollableChat from "./ScrollableChat";
 import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
-
+import "../App.css"
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
@@ -173,14 +173,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             justifyContent={{ base: "space-between" }}
             alignItems="center"
             style={{ display: "flex" }}
-            
           >
-//             <IconButton
-//               d={{ base: "flex", md: "none" }}
-//               icon={<ArrowBackIcon />}
-//               onClick={() => setSelectedChat("")}
-//               style={{ display: "flex" }}
-//             />
+            {/* <IconButton
+              className="display-small-screen"
+              d={{ base: "flex", md: "none" }}
+              icon={<ArrowBackIcon />}
+              onClick={() => setSelectedChat("")}
+              style={{ display: "flex" }}
+            /> */}
             {messages &&
               (!selectedChat.isGroupChat ? (
                 <>
@@ -211,10 +211,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             overflowY="scroll"
             style={{
               display: "flex",
-              backgroundSize: "cover",
+              backgroundSize: "auto",
               backgroundRepeat: "no-repeat",
-                 backgroundImage:
-                "url(" + "https://images.pexels.com/photos/6491643/pexels-photo-6491643.jpeg?cs=srgb&dl=pexels-hani-hakkam-6491643.jpg&fm=jpg" + ")",
+              backgroundImage:
+                "url(" +
+                "https://images.pexels.com/photos/6491643/pexels-photo-6491643.jpeg?cs=srgb&dl=pexels-hani-hakkam-6491643.jpg&fm=jpg" +
+                ")",
+
+              // "url(" + "https://wallpaperaccess.com/full/424833.jpg" + ")",
             }}
             className="my-chats-stack"
           >
@@ -251,7 +255,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 <></>
               )}
               <Input
-//                 variant="filled"
+                // variant="filled"
                 bg="#fff"
                 placeholder="Enter a message.."
                 value={newMessage}
